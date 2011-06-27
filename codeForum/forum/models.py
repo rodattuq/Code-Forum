@@ -4,7 +4,7 @@ from django.db import models
 # Create your models here.
 class Question(models.Model):
 	title  = models.CharField(max_length=60)
-	body = models.TextField()
+	text = models.TextField()
         contributor =  models.CharField(max_length=60)
 	created = models.DateTimeField(auto_now_add=True)
 	updated = models.DateTimeField(auto_now=True)
@@ -12,7 +12,7 @@ class Question(models.Model):
 		return self.title
 
 class Cont(models.Model):
-	body =  models.TextField()
+	text =  models.TextField()
 
 	author =  models.CharField(max_length=60)
 	created = models.DateTimeField(auto_now_add=True)
@@ -27,8 +27,9 @@ class Cont(models.Model):
 
 
 
-class CommentInline(admin.TabularInline):
-	model = Cont
+class ContInline(admin.TabularInline):
+	model = Contls
+
 
 class QuestionAdmin(admin.ModelAdmin):
 	list_display = ('title','created','updated')
