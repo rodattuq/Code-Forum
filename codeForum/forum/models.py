@@ -5,25 +5,24 @@ from django.db import models
 class Question(models.Model):
 	title  = models.CharField(max_length=60)
 	text = models.TextField()
-        contributor =  models.CharField(max_length=60)
+        author =  models.CharField(max_length=60)
 	created = models.DateTimeField(auto_now_add=True)
 	updated = models.DateTimeField(auto_now=True)
 	def __unicode__(self):
 		return self.title
 
 class Cont(models.Model):
-	contribution =  models.TextField()
-
 	contributor =  models.CharField(max_length=60)
+	contribution =  models.TextField()
 	created = models.DateTimeField(auto_now_add=True)
 	updated = models.DateTimeField(auto_now=True)
 	post = models.ForeignKey(Question )
 	def __unicode__(self):
-		return self.text
+		return self.contribution
 		#return self.author+"on "+self.updated+": "+self.body
 		#return self.author
 	def text_first_60(self):
-		return self.body[:60]
+		return self.contribution[:60]
 
 
 
@@ -32,7 +31,7 @@ class ContInline(admin.TabularInline):
 
 
 class QuestionAdmin(admin.ModelAdmin):
-	list_display = ('title','created','updated')
+	list_display = ('author','title','created','updated')
 	search_fields = ('title','text')
 	list_filter = ('created',)
 	inlines = [ContInline]	
