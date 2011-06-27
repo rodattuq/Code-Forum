@@ -12,14 +12,14 @@ class Question(models.Model):
 		return self.title
 
 class Cont(models.Model):
-	text =  models.TextField()
+	contribution =  models.TextField()
 
-	author =  models.CharField(max_length=60)
+	contributor =  models.CharField(max_length=60)
 	created = models.DateTimeField(auto_now_add=True)
 	updated = models.DateTimeField(auto_now=True)
 	post = models.ForeignKey(Question )
 	def __unicode__(self):
-		return self.body
+		return self.text
 		#return self.author+"on "+self.updated+": "+self.body
 		#return self.author
 	def body_first_60(self):
