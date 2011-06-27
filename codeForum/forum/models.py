@@ -28,7 +28,7 @@ class Cont(models.Model):
 
 
 class ContInline(admin.TabularInline):
-	model = Contls
+	model = Cont
 
 
 class QuestionAdmin(admin.ModelAdmin):
