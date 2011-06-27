@@ -22,7 +22,7 @@ class Cont(models.Model):
 		return self.text
 		#return self.author+"on "+self.updated+": "+self.body
 		#return self.author
-	def body_first_60(self):
+	def text_first_60(self):
 		return self.body[:60]
 
 
@@ -33,12 +33,12 @@ class ContInline(admin.TabularInline):
 
 class QuestionAdmin(admin.ModelAdmin):
 	list_display = ('title','created','updated')
-	search_fields = ('title','body')
+	search_fields = ('title','text')
 	list_filter = ('created',)
 	inlines = [ContInline]	
 
 class ContAdmin(admin.ModelAdmin):
-	list_display = ('post','author','body_first_60','created','updated')
+	list_display = ('post','contributor','text_first_60','created','updated')
 	list_filter = ('created',)
 
 
