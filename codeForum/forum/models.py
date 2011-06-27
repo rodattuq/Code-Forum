@@ -4,19 +4,22 @@ from django.db import models
 # Create your models here.
 class Question(models.Model):
 	title  = models.CharField(max_length=60)
-	text = models.TextField()
         author =  models.CharField(max_length=60)
+	text = models.TextField()
 	created = models.DateTimeField(auto_now_add=True)
 	updated = models.DateTimeField(auto_now=True)
 	def __unicode__(self):
 		return self.title
+
+
+
 
 class Cont(models.Model):
 	contributor =  models.CharField(max_length=60)
 	contribution =  models.TextField()
 	created = models.DateTimeField(auto_now_add=True)
 	updated = models.DateTimeField(auto_now=True)
-	post = models.ForeignKey(Question )
+	post = models.ForeignKey(Question)
 	def __unicode__(self):
 		return self.contribution
 		#return self.author+"on "+self.updated+": "+self.body
@@ -28,7 +31,6 @@ class Cont(models.Model):
 
 class ContInline(admin.TabularInline):
 	model = Cont
-
 
 class QuestionAdmin(admin.ModelAdmin):
 	list_display = ('author','title','created','updated')
