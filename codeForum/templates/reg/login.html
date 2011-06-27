@@ -1,0 +1,15 @@
+<a href = "/forum/list"> Main Forum </a>
+
+<form method = 'post' action=".">
+
+
+{% if logged_in %}
+	You are already logged in!<br/> <a href = '/reg/logout'>Logout</a>
+<br>	the user is {{ user }}
+	{% else %}
+			{{ form.as_p }}	
+	{% endif %}
+	<input type="submit" value="Submit" />
+
+
+</form>

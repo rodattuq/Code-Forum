@@ -1,0 +1,13 @@
+list
+{% for question in question_list %}
+
+<div style="background-color:#C9C299; margin: 20px;">
+	<h2><a href = "/forum/detail/{{ question.id }}/True"> {{question.title }} </a></h2>
+	{{ question.text}} <br> <br>Contributor: {{ question.author }} <br>Date created: {{ question.created }}
+</div>
+
+
+
+{% endfor %}
+
+

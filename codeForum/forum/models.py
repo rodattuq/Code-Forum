@@ -43,6 +43,12 @@ class ContAdmin(admin.ModelAdmin):
 	list_filter = ('created',)
 
 
+class Ratings(models.Model):
+	rating = models.IntegerField()
+	link = models.ForeignKey(Cont)
+	like = models.BooleanField()
+	dislike = models.BooleanField()
+
 #Admin.site.register(Book, BookAdmin)
 
 

@@ -1,0 +1,53 @@
+
+
+{% extends "forum/base.html" %}
+
+
+{% block content %}
+
+
+
+<div style="background-color:#C9C299; margin: 20px;">
+{{ question.text }} <br>
+on: {{ question.created }}
+by: {{ question.author }} 
+
+
+</div>
+
+{% for c in conts %}
+
+<div style = "background-color:#FAF8CC">
+	{{ c.contribution }} <br>
+on:	{{ c.updated }} <br>
+by:	{{ c.contributor }} <br>
+
+<a href = "#/like.html">like<br></a>
+<a href = "#/ratings/dislike.html">dislike<br></a>
+
+
+</div>
+<br>
+
+
+{% endfor %}
+
+
+
+
+<br><br><br><br><br><br>
+
+
+<div> New Contribution?</div>
+	<form method = 'post' action = "">
+		{{ form }}
+		<input type = 'submit' name  = 'Submit'>
+	</form>
+
+
+{% endblock %}
+
+
+
+
+
